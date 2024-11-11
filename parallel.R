@@ -1,7 +1,7 @@
 rm(list=ls())
 
 library(parallel)
-source("sim_sl.R")
+source("sim.R")
 
 link <- 'logit'
 ncores <- 4
@@ -23,8 +23,8 @@ for(i in NN){
     X <- mxcov
     cl <- makeCluster(ncores)
     clusterCall(cl, function() {library(optimx);library(PresenceAbsence);library(matrixcalc)})
-    clusterExport(cl, varlist = c('sim_sl','N','p','lambda.ini','X','alpha.cov','link'))
-    sim <- parLapply(cl, 1:10, function(x) sim_sl(x, N, p, lambda.ini , X, alpha.cov, link))
+    clusterExport(cl, varlist = c('sim','N','p','lambda.ini','X','alpha.cov','link'))
+    sim <- parLapply(cl, 1:10, function(x) sim(x, N, p, lambda.ini , X, alpha.cov, link))
     stopCluster(cl)
     saveRDS(sim, file = paste0('n',N,'_p',p,'_',link,'.rdata'))
   }
