@@ -8,4 +8,4 @@ app: Application to the proposed methodology to the  medical real data concernin
 
 parallel.R: Contains the support code for parallel computation of simulations.
 
-sim: 
+sim: Contains the code for some scenarios for calculating simulations.
