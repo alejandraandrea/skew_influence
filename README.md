@@ -6,6 +6,6 @@ functions.R: Contains all the functions related to parameter estimation of the b
 
 app: Application to the proposed methodology to the  medical real data concerning menarche in girls. 
 
-parallel.R: 
+parallel.R: Contains the support code for parallel computation of simulations.
 
 sim: 
